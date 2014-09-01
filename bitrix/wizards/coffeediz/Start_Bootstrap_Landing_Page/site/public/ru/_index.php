@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Простой Лендинг");
+$APPLICATION->SetTitle("#SITE_TITLE#");
 ?>
 
 

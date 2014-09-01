@@ -1,0 +1,1 @@
+<p class="copyright text-muted small">#siteCopyright#</p>

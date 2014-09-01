@@ -1,1 +1,0 @@
-<a class="navbar-brand" href="/">Простой Лендинг</a>

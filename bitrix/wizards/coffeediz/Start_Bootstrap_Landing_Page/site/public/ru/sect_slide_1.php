@@ -11,8 +11,8 @@
 
 
 
-<h1>Простой Лендинг</h1>
-<h3>Простая адаптивная страница вашего товара или услуги</h3>
+<h1>#SITE_TITLE#</h1>
+<h3>#SITE_SLOGAN#</h3>
 <hr class="intro-divider">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:menu", 

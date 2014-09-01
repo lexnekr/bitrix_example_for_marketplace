@@ -1,0 +1,1 @@
+<p class="copyright text-muted small">Разработано с удовольствием © Кофедизайн.рф 2014. All Rights Reserved</p>

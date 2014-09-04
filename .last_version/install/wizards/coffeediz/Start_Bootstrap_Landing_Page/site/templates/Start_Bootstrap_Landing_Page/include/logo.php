@@ -1,1 +1,0 @@
-<a class="navbar-brand" href="/">#SITE_TITLE#</a>

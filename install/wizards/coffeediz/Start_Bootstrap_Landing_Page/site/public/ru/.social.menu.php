@@ -1,0 +1,25 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Twitter", 
+		"https://twitter.com/SBootstrap", 
+		Array(), 
+		Array("SOCIAL"=>"twitter"), 
+		"" 
+	),
+	Array(
+		"GitHub", 
+		"https://github.com/IronSummitMedia/startbootstrap", 
+		Array(), 
+		Array("SOCIAL"=>"github"), 
+		"" 
+	),
+	Array(
+		"Linkedin", 
+		"#", 
+		Array(), 
+		Array("SOCIAL"=>"linkedin"), 
+		"" 
+	)
+);
+?>

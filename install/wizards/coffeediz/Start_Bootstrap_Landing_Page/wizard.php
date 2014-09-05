@@ -34,20 +34,29 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$siteID = $wizard->GetVar("siteID");
 		
 		$siteLogo = $this->GetFileContentImgSrc(WIZARD_SITE_PATH."include/company_logo.php", "/bitrix/wizards/bitrix/demo_community/site/templates/taby/images/logo.jpg");
+
+		$siteSlideImg1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/templates/Start_Bootstrap_Landing_Page/img/intro-bg.jpg";
+
+
+		
+		
+			$siteBanner = $this->GetFileContentImgSrc(WIZARD_SITE_PATH."include/banner.php", "/bitrix/wizards/bitrix/corp_services/site/templates/corp_services/images/banner.png");
 	
+		
+		
 		$wizard->SetDefaultVars(
 			Array(
-				//"siteName" => $this->GetFileContent(WIZARD_SITE_PATH."include/company_name.php", GetMessage("wiz_name")),
-				//"siteDescription" => $this->GetFileContent(WIZARD_SITE_PATH."include/company_description.php", GetMessage("wiz_slogan")), 
 				"siteName" => GetMessage("wiz_name"),
 				"siteDescription" => GetMessage("wiz_slogan"), 
 				"siteSeoTitle" => GetMessage("wiz_name"), 
 				"siteSeoDescription" => GetMessage("wiz_slogan"),
 				"siteSeoKeywords" => GetMessage("wiz_keywords"),  
-				//"siteLogo" => $siteLogo,
-				//"siteMetaDescription" => GetMessage("wiz_slogan"),
-				//"siteMetaKeywords" => GetMessage("wiz_keywords")  
+				"siteSlideImg1" => $siteSlideImg1,  
 				"siteCopyright" => GetMessage("wisCopyright"), 
+				
+				
+				
+								"siteBanner" => $siteBanner, 
 			)
 		);
 	}
@@ -56,6 +65,9 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 	{
 		$wizard =& $this->GetWizard();
 		$res = $this->SaveFile("siteLogo", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 80, "max_width" => 90, "make_preview" => "Y"));
+		$res = $this->SaveFile("siteSlideImg1", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 1270, "max_width" => 1900, "make_preview" => "Y"));
+		$res = $this->SaveFile("siteBanner", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 600, "max_width" => 600, "make_preview" => "Y"));
+
 	}
 	
 	function ShowStep()
@@ -90,6 +102,30 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			<label for="siteMetaKeywords" class="wizard-input-title">'.GetMessage("wiz_seo_keywords").'</label>
 			'.$this->ShowInputField('text', 'siteSeoKeywords', array("id" => "siteSeoKeywords", "class" => "wizard-field")).'
 		</div>';
+		
+		
+		
+		
+		$siteSlideImg1 = $wizard->GetVar("siteSlideImg1", true);
+
+		$this->content .= '<div class="wizard-upload-img-block"><div class="wizard-catalog-title">'.GetMessage("WIZ_SLIDE_IMG_1").'</div>';
+		$this->content .= CFile::ShowImage($siteSlideImg1, 419, 280, "border=0 vspace=15");
+		$this->content .= "<br />".$this->ShowFileField("siteSlideImg1", Array("show_file_info" => "N", "id" => "siteSlideImg1")).'</div>';
+
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		$wizard->SetVar("siteCopyright", GetMessage("wisCopyright"));
 		

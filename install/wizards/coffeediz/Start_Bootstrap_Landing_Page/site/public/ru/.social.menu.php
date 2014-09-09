@@ -1,25 +1,25 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Twitter", 
-		"https://twitter.com/SBootstrap", 
+		"#SOCIAL_LINK_1_TYPE#", 
+		"#SOCIAL_LINK_1#", 
 		Array(), 
-		Array("SOCIAL"=>"twitter"), 
-		"" 
+		Array("SOCIAL"=>"#SOCIAL_LINK_1_TYPE#"), 
+		"#SOCIAL_LINK_1_ACTIVE#" 
 	),
 	Array(
-		"GitHub", 
-		"https://github.com/IronSummitMedia/startbootstrap", 
+		"#SOCIAL_LINK_2_TYPE#", 
+		"#SOCIAL_LINK_2#", 
 		Array(), 
-		Array("SOCIAL"=>"github"), 
-		"" 
+		Array("SOCIAL"=>"#SOCIAL_LINK_2_TYPE#"), 
+		"#SOCIAL_LINK_2_ACTIVE#" 
 	),
 	Array(
-		"Linkedin", 
-		"#", 
+		"#SOCIAL_LINK_3_TYPE#", 
+		"#SOCIAL_LINK_3#", 
 		Array(), 
-		Array("SOCIAL"=>"linkedin"), 
-		"" 
+		Array("SOCIAL"=>"#SOCIAL_LINK_3_TYPE#"), 
+		"#SOCIAL_LINK_3_ACTIVE#" 
 	)
 );
 ?>

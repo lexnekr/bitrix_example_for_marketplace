@@ -20,11 +20,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Вы можете позвонить<br>или написать нам</h2>
-					<p class="lead">Мы готовы ответить на <b>любые</b> ваши вопросы в <b>любое</b> время!<br><b>Мы работаем для Вас!</b></p>
+                    <h2 class="section-heading">#SLIDE_4_TITLE_TEXT#</h2>
+					<p class="lead">#SLIDE_4_TEXT_TEXT#</b></p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="<?=SITE_TEMPLATE_PATH?>/img/phones.png" alt="">
+                    <img class="img-responsive" src="#SLIDE_4_IMG_URL#" alt="">
                 </div>
             </div>
 

@@ -21,11 +21,11 @@
 <div class="col-lg-5 col-sm-6">
 	<hr class="section-heading-spacer">
 	<div class="clearfix"></div>
-	<h2 class="section-heading">ћинималистичный и очень гибкий дизайн:<br> простота и удобство!</h2>
-	<p class="lead">“еперь красивые страницы-лэндинги доступны практически каждому и не требуют привлечени€ технического специалиста дл€ разработки!</p>
+	<h2 class="section-heading">#SLIDE_2_TITLE_TEXT#</h2>
+	<p class="lead">#SLIDE_2_TEXT_TEXT#</p>
 </div>
 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-	<img class="img-responsive" src="<?=SITE_TEMPLATE_PATH?>/img/ipad.png" alt="">
+	<img class="img-responsive" src="#SLIDE_2_IMG_URL#" alt="">
 </div>
 
 

@@ -20,11 +20,11 @@
 	<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
 		<hr class="section-heading-spacer">
 		<div class="clearfix"></div>
-		<h2 class="section-heading">Ќаши услуги</h2>
-		<p class="lead">ћы предоставл€ем только самые высококачественные товары и услуги! ћы посто€нно работаем над качеством и всегда следим за уровнем квалификации всех своих сотрудников, поэтому можем гарантировать превосходный результат!</p>
+		<h2 class="section-heading">#SLIDE_3_TITLE_TEXT#</h2>
+		<p class="lead">#SLIDE_3_TEXT_TEXT#</p>
 	</div>
 	<div class="col-lg-5 col-sm-pull-6  col-sm-6">
-		<img class="img-responsive" src="<?=SITE_TEMPLATE_PATH?>/img/dog.png" alt="">
+		<img class="img-responsive" src="#SLIDE_3_IMG_URL#" alt="">
 	</div>
 </div>
 

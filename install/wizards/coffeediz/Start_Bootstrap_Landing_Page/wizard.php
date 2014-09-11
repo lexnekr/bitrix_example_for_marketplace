@@ -36,13 +36,10 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$siteLogo = $this->GetFileContentImgSrc(WIZARD_SITE_PATH."include/company_logo.php", "/bitrix/wizards/bitrix/demo_community/site/templates/taby/images/logo.jpg");
 
 		$siteSlideImg1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/templates/Start_Bootstrap_Landing_Page/img/intro-bg.jpg";
+		$siteSlideImg2 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide2.png";
+		$siteSlideImg3 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide3.png";
+		$siteSlideImg4 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide4.png";
 
-
-		
-		
-			$siteBanner = $this->GetFileContentImgSrc(WIZARD_SITE_PATH."include/banner.php", "/bitrix/wizards/bitrix/corp_services/site/templates/corp_services/images/banner.png");
-	
-		
 		
 		$wizard->SetDefaultVars(
 			Array(
@@ -59,10 +56,20 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"wiz_social_link_1"=>GetMessage("wiz_social_link_1"),
 				"wiz_social_link_2"=>GetMessage("wiz_social_link_2"),
 				"wiz_social_link_3"=>GetMessage("wiz_social_link_3"),
-				
-				
-				
-								"siteBanner" => $siteBanner, 
+				"wiz_social_link_6_name"=>GetMessage("wiz_social_link_6_text"),
+				"wiz_content_checkbox"=>"Y",
+				"wiz_slide_2_title_text"=>GetMessage("wiz_slide_2_title_text"),
+				"wiz_slide_2_text_text"=>GetMessage("wiz_slide_2_text_text"),
+				"wiz_slide_2_img"=>GetMessage("wiz_slide_2_img"),
+				"siteSlideImg2" => $siteSlideImg2,  
+				"wiz_slide_3_title_text"=>GetMessage("wiz_slide_3_title_text"),
+				"wiz_slide_3_text_text"=>GetMessage("wiz_slide_3_text_text"),
+				"wiz_slide_3_img"=>GetMessage("wiz_slide_3_img"),
+				"siteSlideImg3" => $siteSlideImg3,  
+				"wiz_slide_4_title_text"=>GetMessage("wiz_slide_4_title_text"),
+				"wiz_slide_4_text_text"=>GetMessage("wiz_slide_4_text_text"),
+				"wiz_slide_4_img"=>GetMessage("wiz_slide_4_img"),
+				"siteSlideImg4" => $siteSlideImg4,  
 			)
 		);
 	}
@@ -70,17 +77,18 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 	function OnPostForm()
 	{
 		$wizard =& $this->GetWizard();
-		$res = $this->SaveFile("siteLogo", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 80, "max_width" => 90, "make_preview" => "Y"));
 		$res = $this->SaveFile("siteSlideImg1", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 1270, "max_width" => 1900, "make_preview" => "Y"));
-		$res = $this->SaveFile("siteBanner", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 600, "max_width" => 600, "make_preview" => "Y"));
-
-	}
+		$res = $this->SaveFile("siteSlideImg2", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 696, "make_preview" => "Y"));
+		$res = $this->SaveFile("siteSlideImg3", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 753, "make_preview" => "Y"));
+		$res = $this->SaveFile("siteSlideImg4", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 753, "make_preview" => "Y"));
+		}
 	
 	function ShowStep()
 	{
 		$wizard =& $this->GetWizard();
 		$siteLogo = $wizard->GetVar("siteLogo", true);
 		$siteCopyright = $wizard->GetVar("siteCopyright", true);
+		$this->content = $this->ShowInputField('text', 'wiz_social_link_6_name', array("id" => "wiz_social_link_6_name", "style" => "display: none;"));
 		
 		$this->content .= '<div class="wizard-input-form">';
 		$this->content .= '
@@ -94,23 +102,7 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			'.$this->ShowInputField('text', 'siteDescription', array("id" => "siteDescription", "class" => "wizard-field")).'
 		</div>';
 		
-		
-		
-		$this->content .= '
-		<div class="wizard-metadata-title">'.GetMessage("wiz_seo").'</div>
-		<div class="wizard-upload-img-block">
-			<label for="siteMetaTitle" class="wizard-input-title">'.GetMessage("wiz_seo_title").'</label>
-			'.$this->ShowInputField('text', 'siteSeoTitle', array("id" => "siteSeoTitle", "class" => "wizard-field")).'
-		</div><div class="wizard-upload-img-block">
-			<label for="siteMetaDescription" class="wizard-input-title">'.GetMessage("wiz_seo_description").'</label>
-			'.$this->ShowInputField('text', 'siteSeoDescription', array("id" => "siteSeoDescription", "class" => "wizard-field")).'
-		</div><div class="wizard-upload-img-block">
-			<label for="siteMetaKeywords" class="wizard-input-title">'.GetMessage("wiz_seo_keywords").'</label>
-			'.$this->ShowInputField('text', 'siteSeoKeywords', array("id" => "siteSeoKeywords", "class" => "wizard-field")).'
-		</div>';
-		
-		
-		
+
 		//START Add BG to the 1st slide
 		$siteSlideImg1 = $wizard->GetVar("siteSlideImg1", true);
 
@@ -125,7 +117,11 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			"N" => GetMessage("wiz_social_link_0_text"),
 			"twitter" => GetMessage("wiz_social_link_1_text"),
 			"github" => GetMessage("wiz_social_link_2_text"),
-			"linkedin" => GetMessage("wiz_social_link_3_text")
+			"linkedin" => GetMessage("wiz_social_link_3_text"),
+			"facebook" => GetMessage("wiz_social_link_4_text"),
+			"google-plus" => GetMessage("wiz_social_link_5_text"),
+			"vk" => GetMessage("wiz_social_link_6_text"),
+			
 		);
 
 		foreach($arConditions as $conditionID => $conditionName)
@@ -194,7 +190,98 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		//END INPUT SOCIAL MENU POINTS
 
 		
+		//START CHECKBOX FOR HIDING
+		$this->content .= '<br/>
+			<div class="wizard-input-form-block">
+				<div>
+					<div class="wizard-catalog-form-item">
+						'.$this->ShowCheckboxField("wiz_content_checkbox", "Y", array("id" => "wiz_content_checkbox", "onclick"=>"showMe(this)"))
+						.'<label for="use-store-control">'.GetMessage("wiz_content_checkbox").'</label>
+					</div>';
+		$this->content .= '<script type="text/javascript">
+
+		function showMe (box) {
+		var vis = (box.checked) ? "block" : "none";
+		document.getElementById("wiz_content_edit_block").style.display = vis;
+		}
+
+		</script>';
+		//END CHECKBOX FOR HIDING
 		
+		// START HIDING BLOCK
+		$this->content .= '<div id="wiz_content_edit_block">';
+		
+				$siteSlideImg2 = $wizard->GetVar("siteSlideImg2", true);
+				$siteSlideImg3 = $wizard->GetVar("siteSlideImg3", true);
+				$siteSlideImg4 = $wizard->GetVar("siteSlideImg4", true);
+		
+			//START INPUT SLIDE 2
+			$this->content .= '
+			<div class="wizard-input-form-block">
+				<div class="wizard-metadata-title">'.GetMessage("wiz_slide_2").'</div>
+					<label for="wiz_slide_2_title" class="wizard-input-title">'.GetMessage("wiz_slide_2_title").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_2_title_text', array("rows"=>"2", "id" => "wiz_slide_2_title_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_2_text" class="wizard-input-title">'.GetMessage("wiz_slide_2_text").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_2_text_text', array("rows"=>"4", "id" => "wiz_slide_2_text_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_2_img" class="wizard-input-title">'.GetMessage("wiz_slide_2_img").'</label>
+				'.CFile::ShowImage($siteSlideImg2, 419, 324, "border=0 vspace=15").'<br/>
+				'.$this->ShowFileField("siteSlideImg2", Array("show_file_info" => "N", "id" => "siteSlideImg2")).'</div>
+			';	
+			//END INPUT SLIDE 2
+			
+			//START INPUT SLIDE 3
+			$this->content .= '
+			<div class="wizard-input-form-block">
+				<div class="wizard-metadata-title">'.GetMessage("wiz_slide_3").'</div>
+				
+					<label for="wiz_slide_3_title" class="wizard-input-title">'.GetMessage("wiz_slide_3_title").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_3_title_text', array("rows"=>"2", "id" => "wiz_slide_3_title_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_3_text" class="wizard-input-title">'.GetMessage("wiz_slide_3_text").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_3_text_text', array("rows"=>"4", "id" => "wiz_slide_3_text_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_3_img" class="wizard-input-title">'.GetMessage("wiz_slide_3_img").'</label>
+				'.CFile::ShowImage($siteSlideImg3, 419, 351, "border=0 vspace=15").'<br/>
+				'.$this->ShowFileField("siteSlideImg3", Array("show_file_info" => "N", "id" => "siteSlideImg3")).'
+			</div>';	
+			//END INPUT SLIDE 3
+			
+			//START INPUT SLIDE 4
+			$this->content .= '
+			<div class="wizard-input-form-block">
+				<div class="wizard-metadata-title">'.GetMessage("wiz_slide_4").'</div>
+				
+					<label for="wiz_slide_4_title" class="wizard-input-title">'.GetMessage("wiz_slide_4_title").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_4_title_text', array("rows"=>"2", "id" => "wiz_slide_4_title_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_4_text" class="wizard-input-title">'.GetMessage("wiz_slide_4_text").'</label><br/>
+					'.$this->ShowInputField('textarea', 'wiz_slide_4_text_text', array("rows"=>"4", "id" => "wiz_slide_4_text_text", "class" => "wizard-field")).'
+					<br/>
+					<label for="wiz_slide_4_img" class="wizard-input-title">'.GetMessage("wiz_slide_4_img").'</label>
+				'.CFile::ShowImage($siteSlideImg4, 419, 277, "border=0 vspace=15").'<br/>
+				'.$this->ShowFileField("siteSlideImg4", Array("show_file_info" => "N", "id" => "siteSlideImg4")).'
+			</div>';	
+			//END INPUT SLIDE 4
+		
+			// START SEO BLOCK
+			$this->content .= '
+			<div class="wizard-metadata-title">'.GetMessage("wiz_seo").'</div>
+			<div class="wizard-upload-img-block">
+				<label for="siteMetaTitle" class="wizard-input-title">'.GetMessage("wiz_seo_title").'</label>
+				'.$this->ShowInputField('text', 'siteSeoTitle', array("id" => "siteSeoTitle", "class" => "wizard-field")).'
+			</div><div class="wizard-upload-img-block">
+				<label for="siteMetaDescription" class="wizard-input-title">'.GetMessage("wiz_seo_description").'</label>
+				'.$this->ShowInputField('text', 'siteSeoDescription', array("id" => "siteSeoDescription", "class" => "wizard-field")).'
+			</div><div class="wizard-upload-img-block">
+				<label for="siteMetaKeywords" class="wizard-input-title">'.GetMessage("wiz_seo_keywords").'</label>
+				'.$this->ShowInputField('text', 'siteSeoKeywords', array("id" => "siteSeoKeywords", "class" => "wizard-field")).'
+			</div>';
+			// END SEO BLOCK
+			
+		$this->content .= '</div>';
+		// END HIDING BLOCK
 		
 		
 		

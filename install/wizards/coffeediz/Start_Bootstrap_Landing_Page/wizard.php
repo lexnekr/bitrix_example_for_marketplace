@@ -57,7 +57,7 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"wiz_social_link_2"=>GetMessage("wiz_social_link_2"),
 				"wiz_social_link_3"=>GetMessage("wiz_social_link_3"),
 				"wiz_social_link_6_name"=>GetMessage("wiz_social_link_6_text"),
-				"wiz_content_checkbox"=>"Y",
+				"wiz_content_checkbox"=>"N",
 				"wiz_slide_2_title_text"=>GetMessage("wiz_slide_2_title_text"),
 				"wiz_slide_2_text_text"=>GetMessage("wiz_slide_2_text_text"),
 				"wiz_slide_2_img"=>GetMessage("wiz_slide_2_img"),
@@ -209,7 +209,7 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		//END CHECKBOX FOR HIDING
 		
 		// START HIDING BLOCK
-		$this->content .= '<div id="wiz_content_edit_block">';
+		$this->content .= '<div id="wiz_content_edit_block" style="display: none;">';
 		
 				$siteSlideImg2 = $wizard->GetVar("siteSlideImg2", true);
 				$siteSlideImg3 = $wizard->GetVar("siteSlideImg3", true);
@@ -373,9 +373,14 @@ class FinishStep extends CFinishWizardStep
 
         COption::SetOptionString("main", "wizard_solution", $wizard->solutionName, false, $siteID);
 
-        $this->content .= GetMessage("FINISH_STEP_CONTENT");
-        //$this->content .= "<br clear=\"all\"><a href=\"/bitrix/admin/wizard_install.php?lang=".LANGUAGE_ID."&site_id=".$siteID."&wizardName=bitrix:eshop.mobile&".bitrix_sessid_get()."\" class=\"button-next\"><span id=\"next-button-caption\">".GetMessage("wizard_store_mobile")."</span></a>";
 
+        //$this->content .= "<br clear=\"all\"><a href=\"/bitrix/admin/wizard_install.php?lang=".LANGUAGE_ID."&site_id=".$siteID."&wizardName=bitrix:eshop.mobile&".bitrix_sessid_get()."\" class=\"button-next\"><span id=\"next-button-caption\">".GetMessage("wizard_store_mobile")."</span></a>";
+		$this->content .= GetMessage("FINISH_STEP_COMPOSITE");
+		$this->content .= '<br/><center><a href="/bitrix/admin/composite.php?lang=ru">'.CFile::ShowImage("/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/composite.gif", 600, 250, "border=0 vspace=15").'</a></center>';
+		$this->content .= '<center><b><a href="/bitrix/admin/composite.php?lang=ru">'.GetMessage("FINISH_STEP_COMPOSITE_LINK").'</a></b></center>';
+		
+		$this->content .= '<br/><br/><b>'.GetMessage("FINISH_STEP_CONTENT").'</b>';
+		
         if ($wizard->GetVar("installDemoData") == "Y")
             $this->content .= GetMessage("FINISH_STEP_REINDEX");
 

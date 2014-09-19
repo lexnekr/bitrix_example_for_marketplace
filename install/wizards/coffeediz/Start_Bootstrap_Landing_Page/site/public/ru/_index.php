@@ -48,6 +48,22 @@ Array(
 
 
 
+<?$APPLICATION->IncludeComponent("coffeediz:carusel", "iblock", array(
+	"CACHE_TYPE" => "A",
+	"CACHE_TIME" => "3600",
+	"BACKGROUND" => "#SITE_PATH#",
+	"BACKGROUND_COLOR" => "#e84ba5",
+	"IBLOCK_TYPE" => "Template_Bootstrap_Landing",
+	"IBLOCK_ID" => "#CARUSEL_IBLOCK_ID#",
+	"PARENT_SECTION" => "mian",
+	"BANNERS_COUNT" => "20",
+	"LIST_PROPERTY_CODE" => "TEMPLATE_BOOTSTRAP_LANDING_CARUSEL_LINK"
+	),
+	false
+);?>
+
+
+
 <?$APPLICATION->IncludeComponent(
 "bitrix:main.include",
 "",

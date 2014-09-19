@@ -45,6 +45,7 @@ false
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?=SITE_TEMPLATE_PATH?>/js/bootstrap.min.js"></script>
+	<?$APPLICATION->ShowViewContent('myCarousel');?>
 
 	<a href="http://<?=GetMessage('TEMPLATE_URL');?>"></a>
 

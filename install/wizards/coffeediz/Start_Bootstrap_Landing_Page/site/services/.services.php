@@ -15,7 +15,7 @@ $arServices = Array(
 		"NAME"		=> GetMessage("SERVICE_IBLOCK"),
 		"STAGES"	=> array(
 			"types.php",
-			"color.php",
+			"Template_Bootstrap_Landing.php",
 			"material.php",
             "sizes.php",
             "vendor.php",

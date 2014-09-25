@@ -1,5 +1,7 @@
 <?
-$MESS["Template_Bootstrap_Landing_TYPE_NAME"] = "Ўаблон";
-$MESS["Template_Bootstrap_Landing_ELEMENT_NAME"] = "Ёлементы";
-$MESS["Template_Bootstrap_Landing_SECTION_NAME"] = "–азделы";
+
+$MESS["TEMPLATE_BOOTSTRAP_LANDING_TYPE_NAME"] = "шаблон";
+$MESS["TEMPLATE_BOOTSTRAP_LANDING_ELEMENT_NAME"] = "Элементы";
+$MESS["TEMPLATE_BOOTSTRAP_LANDING_SECTION_NAME"] = "Разделы";
+
 ?>

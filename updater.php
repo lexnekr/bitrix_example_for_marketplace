@@ -1,11 +1,11 @@
 <?
-if(IsModuleInstalled('bitrix.sitepersonal'))
+if(IsModuleInstalled('coffeediz.startbootstraplandingpage'))
 {
 	if (is_dir(dirname(__FILE__).'/install/components'))
 		$updater->CopyFiles("install/components", "components/");
 
 	if (is_dir(dirname(__FILE__).'/install/js'))
-		$updater->CopyFiles("install/js", "js/bitrix.sitepersonal/");
+		$updater->CopyFiles("install/js", "js/coffeediz.startbootstraplandingpage/");
 }
 
 

@@ -7,8 +7,8 @@ if(!CModule::IncludeModule("iblock"))
 
 $arTypes = Array(
 	Array(
-		"ID" => "Template_Bootstrap_Landing",
-		"SECTIONS" => "N",
+		"ID" => "TEMPLATE_BOOTSTRAP_LANDING",
+		"SECTIONS" => "Y",
 		"IN_RSS" => "N",
 		"SORT" => 50,
 		"LANG" => Array(),

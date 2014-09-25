@@ -5,8 +5,8 @@ if(!CModule::IncludeModule("iblock"))
 	return;
 
 $iblockXMLFile = WIZARD_SERVICE_RELATIVE_PATH."/xml/".LANGUAGE_ID."/Template_Bootstrap_Landing_Carusel.xml"; 
-$iblockCode = "Template_Bootstrap_Landing_Carusel_".WIZARD_SITE_ID; 
-$iblockType = "Template_Bootstrap_Landing"; 
+$iblockCode = "TEMPLATE_BOOTSTRAP_LANDING_CARUSEL_".WIZARD_SITE_ID; 
+$iblockType = "TEMPLATE_BOOTSTRAP_LANDING"; 
 
 $rsIBlock = CIBlock::GetList(array(), array("CODE" => $iblockCode, "TYPE" => $iblockType));
 $iblockID = false; 
@@ -33,7 +33,7 @@ if($iblockID == false)
 	};
 	$iblockID = WizardServices::ImportIBlockFromXML(
 		$iblockXMLFile,
-		"Template_Bootstrap_Landing_Carusel",
+		"TEMPLATE_BOOTSTRAP_LANDING_CARUSEL",
 		$iblockType,
 		WIZARD_SITE_ID,
 		$permissions

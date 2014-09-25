@@ -64,4 +64,14 @@ if($siteSlideImg1>0)
 //END Add BG to the 1st slide
 
 
+//START Template Name+Description
+CWizardUtil::ReplaceMacros(
+	$bitrixTemplateDir."/Start_Bootstrap_Landing_Page/description.php",
+ Array(
+    "TEMPLATE_BOOTSTRAP_LANDING_NAME" => htmlspecialcharsbx(GetMessage("TEMPLATE_BOOTSTRAP_LANDING_NAME")),
+    "TEMPLATE_BOOTSTRAP_LANDING_DESCRIPTION" => htmlspecialcharsbx(GetMessage("TEMPLATE_BOOTSTRAP_LANDING_DESCRIPTION")),
+ )
+);
+// END Template Name+Description
+
 ?>

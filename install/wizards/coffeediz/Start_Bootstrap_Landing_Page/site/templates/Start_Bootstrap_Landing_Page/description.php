@@ -1,6 +1,6 @@
 <?$arTemplate = array(
-	"NAME" => "Шаблон Простого Адаптивного Лендинга",
-	"DESCRIPTION" => "Шаблон изготовлен на основе простого Bootstrap шаблона http://startbootstrap.com/template-overviews/landing-page/",
+	"NAME" => "#TEMPLATE_BOOTSTRAP_LANDING_NAME#",
+	"DESCRIPTION" => "#TEMPLATE_BOOTSTRAP_LANDING_DESCRIPTION#",
 	"SORT" => "",
 );
 ?>

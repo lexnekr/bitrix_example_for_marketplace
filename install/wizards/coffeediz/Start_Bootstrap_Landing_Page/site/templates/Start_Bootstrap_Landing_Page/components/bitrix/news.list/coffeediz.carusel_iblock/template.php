@@ -24,10 +24,10 @@ $this->setFrameMode(true);
 
 			<?if (!empty($arItem['PROPERTIES'][$arParams['PROPERTY_CODE'][0]]['VALUE'])):?>
 		<a href="<?=$arItem['PROPERTIES'][$arParams['PROPERTY_CODE'][0]]['VALUE']?>">
-            <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="img-responsive">
+            <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="img-responsive center">
 		</a>
 			<?else:?>
-            <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="img-responsive">
+            <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" title="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["TITLE"]?>" class="img-responsive center">
 			<?endif;?>
         </div>
 

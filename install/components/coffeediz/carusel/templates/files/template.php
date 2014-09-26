@@ -13,7 +13,7 @@ $this->setFrameMode(true);
 	<?foreach($arParams["BANNERS"] as $arItem):?>
 		<?if (empty($arItem)) break;?>
 		<div class="item <?if($i==0):?>active<?endif?>">
-            <img src="<?=$arItem?>" class="img-responsive">
+            <img src="<?=$arItem?>" class="img-responsive center">
         </div>
 	<?$i++;?>
 	<?endforeach;?>

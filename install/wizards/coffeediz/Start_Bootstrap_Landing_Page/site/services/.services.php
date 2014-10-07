@@ -16,6 +16,8 @@ $arServices = Array(
 		"STAGES"	=> array(
 			"types.php",
 			"Template_Bootstrap_Landing.php",
+			"TEMPLATE_BOOTSTRAP_LANDING_GALERY.php",
+			"TEMPLATE_BOOTSTRAP_LANDING_GALERY_LITE.php",
 			"material.php",
             "sizes.php",
             "vendor.php",

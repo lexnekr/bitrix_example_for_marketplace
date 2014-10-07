@@ -3,17 +3,17 @@
 
 if(!CModule::IncludeModule("iblock"))
 	return;
-
-
-
-
-if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y")
+	
+	
+	
+	
+if ($wizard->GetVar("wiz_galery_carusel_switcher")=="2")
 {
-	// IF SWITCHER install CARUSEL = Y
+	// IF SWITCHER install GALERY CARUSEL == LITE (2)
 	// INSTALL IBlock
 
-	$iblockXMLFile = WIZARD_SERVICE_RELATIVE_PATH."/xml/".LANGUAGE_ID."/Template_Bootstrap_Landing_Carusel.xml"; 
-	$iblockCode = "TEMPLATE_BOOTSTRAP_LANDING_CARUSEL_".WIZARD_SITE_ID; 
+	$iblockXMLFile = WIZARD_SERVICE_RELATIVE_PATH."/xml/".LANGUAGE_ID."/TEMPLATE_BOOTSTRAP_LANDING_GALERY_LITE.xml"; 
+	$iblockCode = "TEMPLATE_BOOTSTRAP_LANDING_GALERY_LITE_".WIZARD_SITE_ID; 
 	$iblockType = "TEMPLATE_BOOTSTRAP_LANDING"; 
 
 	$rsIBlock = CIBlock::GetList(array(), array("CODE" => $iblockCode, "TYPE" => $iblockType));
@@ -41,7 +41,7 @@ if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y")
 		};
 		$iblockID = WizardServices::ImportIBlockFromXML(
 			$iblockXMLFile,
-			"TEMPLATE_BOOTSTRAP_LANDING_CARUSEL",
+			"TEMPLATE_BOOTSTRAP_LANDING_GALERY_LITE",
 			$iblockType,
 			WIZARD_SITE_ID,
 			$permissions
@@ -77,47 +77,37 @@ if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y")
 			$iblock->Update($iblockID, array("LID" => $arSites));
 		}
 	}
+	
+	// IF SWITCHER install GALERY CARUSEL == LITE (2)
+	// INSTALL CARUSEL COMPONENT TO PAGE
 
-
-
-//IF SWITCHER install CARUSEL = Y
-// INSTALL CARUSEL COMPONENT TO PAGE
-
-	$carusel_code = '
-	<?$APPLICATION->IncludeComponent("coffeediz:carusel", "iblock", array(
-		"CACHE_TYPE" => "A",
-		"CACHE_TIME" => "3600",
-		"BACKGROUND" => "#SITE_PATH#",
-		"BACKGROUND_COLOR" => "#e84ba5",
-		"IBLOCK_TYPE" => "Template_Bootstrap_Landing",
-		"IBLOCK_ID" => "#CARUSEL_IBLOCK_ID#",
-		"PARENT_SECTION" => "mian",
-		"BANNERS_COUNT" => "20",
-		"LIST_PROPERTY_CODE" => "TEMPLATE_BOOTSTRAP_LANDING_CARUSEL_LINK"
-		),
-		false
-	);?>
+	$Galery_carusel_code = '
+	<?$APPLICATION->IncludeComponent("coffeediz:galery-carusel", "lite", array(
+	"IBLOCK_TYPE" => "TEMPLATE_BOOTSTRAP_LANDING",
+	"IBLOCK_ID" => "#CARUSEL_IBLOCK_ID#",
+	"PARENT_SECTION" => "",
+	"PARENT_SECTION_CODE" => "Benefits",
+	"BANNERS_COUNT" => "20",
+	"CACHE_TYPE" => "A",
+	"CACHE_TIME" => "3600",
+	"DISPLAY_PAGINATION" => "Y",
+	"PROPERTY_CODE_BUTTON_TEXT" => "BUTTON_TEXT",
+	"PROPERTY_CODE_BUTTON_LINK" => "BUTTON_LINK",
+	"PROPERTY_CODE_BUTTON_COLOR" => "btn-success"
+	),
+	false
+);?>
 	';
+		
 }
 else
 {
-//IF SWITCHER install CARUSEL = N
-// don't INSTALL IBlock
-// don't INSTALL CARUSEL COMPONENT TO PAGE
+	$Galery_carusel_code = '';
 }
 
 
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("CARUSEL_CODE" => $carusel_code));
 
+	CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("GALERY_CARUSEL_CODE" => $Galery_carusel_code));
+	CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("CARUSEL_IBLOCK_ID" => $iblockID));
 
-
-
-
-
-
-
-$strNewFile = WIZARD_SITE_DIR."include/carousel/top-bg.jpg";
-
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("CARUSEL_IBLOCK_ID" => $iblockID));
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("SITE_PATH" => $strNewFile));
 ?>

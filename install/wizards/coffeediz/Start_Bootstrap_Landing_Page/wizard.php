@@ -70,8 +70,10 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"wiz_slide_4_text_text"=>GetMessage("wiz_slide_4_text_text"),
 				"wiz_slide_4_img"=>GetMessage("wiz_slide_4_img"),
 				"siteSlideImg4" => $siteSlideImg4,  
+				"wiz_banner_carusel_switcher" =>"Y",
+				"wiz_galery_carusel_switcher" =>"1",
 			)
-		);
+		);		
 	}
 
 	function OnPostForm()
@@ -231,6 +233,31 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			';	
 			//END INPUT SLIDE 2
 			
+			
+			//INTRO (create array) GALERY-CARUSEL
+			$arConditionsGaleryCarusel = array(
+				"N" => GetMessage("wiz_galery_carusel_0_text"),
+				"1" => GetMessage("wiz_galery_carusel_1_text"),
+				"2" => GetMessage("wiz_galery_carusel_2_text"),
+				
+			);
+
+			foreach($arConditionsGaleryCarusel as $conditionID => $conditionName)
+			{
+				$arReserveConditionsGaleryCarusel[$conditionID] = $conditionName;
+			}
+			//START SWITCH GALERY-CARUSEL
+			$this->content .= '
+			<div class="wizard-input-form-block">
+				<div class="wizard-metadata-title">'.GetMessage("wiz_galery_carusel").'</div>
+				
+					<label for="wiz_slide_3_title" class="wizard-input-title">'.GetMessage("wiz_galery_carusel_title").'</label><br/>
+					'.$this->ShowSelectField("wiz_galery_carusel_switcher", $arReserveConditionsGaleryCarusel, Array("id" => "wiz_galery_carusel_switcher")).'
+					<br/>'.CFile::ShowImage("/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/galery-carusel.jpg", 600, 264, "border=0 vspace=15").'
+			</div>';	
+			//END SWITCH GALERY-CARUSEL
+			
+			
 			//START INPUT SLIDE 3
 			$this->content .= '
 			<div class="wizard-input-form-block">
@@ -247,6 +274,30 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				'.$this->ShowFileField("siteSlideImg3", Array("show_file_info" => "N", "id" => "siteSlideImg3")).'
 			</div>';	
 			//END INPUT SLIDE 3
+
+			
+			//INTRO (create array) BANNER CARUSEL
+			$arConditionsCarusel = array(
+				"N" => GetMessage("wiz_banner_carusel_0_text"),
+				"Y" => GetMessage("wiz_banner_carusel_1_text"),
+				
+			);
+
+			foreach($arConditionsCarusel as $conditionID => $conditionName)
+			{
+				$arReserveConditionsCarusel[$conditionID] = $conditionName;
+			}
+			//START SWITCH BANNER CARUSEL
+			$this->content .= '
+			<div class="wizard-input-form-block">
+				<div class="wizard-metadata-title">'.GetMessage("wiz_banner_carusel").'</div>
+				
+					<label for="wiz_slide_3_title" class="wizard-input-title">'.GetMessage("wiz_banner_carusel_title").'</label><br/>
+					'.$this->ShowSelectField("wiz_banner_carusel_switcher", $arReserveConditionsCarusel, Array("id" => "wiz_banner_carusel_switcher")).'
+					<br/>'.CFile::ShowImage("/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/carusel.jpg", 600, 264, "border=0 vspace=15").'
+			</div>';	
+			//END SWITCH BANNER CARUSEL
+			
 			
 			//START INPUT SLIDE 4
 			$this->content .= '

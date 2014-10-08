@@ -6,9 +6,9 @@ $PathInstall = substr($PathInstall, 0, strlen($PathInstall)-strlen("/index.php")
 
 IncludeModuleLangFile($PathInstall."/index.php");
 
-Class coffeediz_startbootstraplandingpage extends CModule
+Class coffeediz_lplite extends CModule
 {
-	var $MODULE_ID = "coffeediz.startbootstraplandingpage";
+	var $MODULE_ID = "coffeediz.lplite";
 	var $MODULE_VERSION;
 	var $MODULE_VERSION_DATE;
 	var $MODULE_NAME;
@@ -16,7 +16,7 @@ Class coffeediz_startbootstraplandingpage extends CModule
 	var $MODULE_CSS;
 	var $MODULE_GROUP_RIGHTS = "Y";
 
-	function coffeediz_startbootstraplandingpage()
+	function coffeediz_lplite()
 	{
 		$arModuleVersion = array();
 
@@ -34,13 +34,13 @@ Class coffeediz_startbootstraplandingpage extends CModule
 
 	function InstallDB($install_wizard = true)
 	{
-        RegisterModule("coffeediz.startbootstraplandingpage");
+        RegisterModule("coffeediz.lplite");
 		return true;
 	}
 
 	function UnInstallDB($arParams = Array())
 	{
-        UnRegisterModule("coffeediz.startbootstraplandingpage");
+        UnRegisterModule("coffeediz.lplite");
 		return true;
 	}
 

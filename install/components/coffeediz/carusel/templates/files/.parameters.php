@@ -6,5 +6,9 @@ $arTemplateParameters = array(
 			"NAME" => GetMessage("BANNERS"),
 			"MULTIPLE" => "Y",
 		),
+		"LINKS" => Array(
+			"NAME" => GetMessage("LINKS"),
+			"MULTIPLE" => "Y",
+		),
 
 );?>

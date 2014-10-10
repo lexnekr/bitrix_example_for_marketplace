@@ -39,6 +39,8 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$siteSlideImg2 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/site/public/ru/include/slide2.png";
 		$siteSlideImg3 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/site/public/ru/include/slide3.png";
 		$siteSlideImg4 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/site/public/ru/include/slide4.png";
+		$banner_carusel_lite_img_1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/images/ru/carousel/1.jpg";
+		$banner_carusel_lite_img_2 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/images/ru/carousel/2.png";
 
 		
 		$wizard->SetDefaultVars(
@@ -70,8 +72,12 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"wiz_slide_4_text_text"=>GetMessage("wiz_slide_4_text_text"),
 				"wiz_slide_4_img"=>GetMessage("wiz_slide_4_img"),
 				"siteSlideImg4" => $siteSlideImg4,  
-				"wiz_banner_carusel_switcher" =>"Y",
-				"wiz_galery_carusel_switcher" =>"1",
+				"wiz_banner_carusel_switcher" =>"2",
+				"wiz_galery_carusel_switcher" =>"2",
+				"banner_carusel_lite_img_1"=>$banner_carusel_lite_img_1,
+				"banner_carusel_lite_img_2"=>$banner_carusel_lite_img_2,
+				"banner_carusel_lite_img_1_link"=>GetMessage("banner_carusel_lite_img_1_link_text"),
+				"banner_carusel_lite_img_2_link"=>GetMessage("banner_carusel_lite_img_2_link_text"),
 			)
 		);		
 	}
@@ -83,6 +89,8 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$res = $this->SaveFile("siteSlideImg2", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 696, "make_preview" => "Y"));
 		$res = $this->SaveFile("siteSlideImg3", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 753, "make_preview" => "Y"));
 		$res = $this->SaveFile("siteSlideImg4", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 753, "make_preview" => "Y"));
+		$res = $this->SaveFile("banner_carusel_lite_img_1", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 1600, "make_preview" => "Y"));
+		$res = $this->SaveFile("banner_carusel_lite_img_2", Array("extensions" => "gif,jpg,jpeg,png", "max_height" => 900, "max_width" => 1600, "make_preview" => "Y"));
 		}
 	
 	function ShowStep()
@@ -275,13 +283,16 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			</div>';	
 			//END INPUT SLIDE 3
 
-			/*
+			
 			//INTRO (create array) BANNER CARUSEL
 			$arConditionsCarusel = array(
 				"N" => GetMessage("wiz_banner_carusel_0_text"),
-				"Y" => GetMessage("wiz_banner_carusel_1_text"),
+				//"1" => GetMessage("wiz_banner_carusel_1_text"),
+				"2" => GetMessage("wiz_banner_carusel_2_text"),
 				
 			);
+			$banner_carusel_lite_img_1 = $wizard->GetVar("banner_carusel_lite_img_1", true);
+			$banner_carusel_lite_img_2 = $wizard->GetVar("banner_carusel_lite_img_2", true);
 
 			foreach($arConditionsCarusel as $conditionID => $conditionName)
 			{
@@ -295,9 +306,51 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 					<label for="wiz_slide_3_title" class="wizard-input-title">'.GetMessage("wiz_banner_carusel_title").'</label><br/>
 					'.$this->ShowSelectField("wiz_banner_carusel_switcher", $arReserveConditionsCarusel, Array("id" => "wiz_banner_carusel_switcher")).'
 					<br/>'.CFile::ShowImage("/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page_LITE/images/ru/carusel.jpg", 600, 264, "border=0 vspace=15").'
-			</div>';	
+			</div>	
+			<script>
+			document.getElementById("wiz_banner_carusel_switcher").onchange = function(){
+				if (this.value != "2") {
+				document.getElementById("wiz_banner_carusel_lite_box").style.display="none";
+				}
+				else {
+				document.getElementById("wiz_banner_carusel_lite_box").style.display="block";
+				}
+			}
+			</script>
+			<div class="wizard-input-form-block" id="wiz_banner_carusel_lite_box" style="display: none; border: 1px solid black;">
+				<label for="wiz_banner_carusel_lite_img_title" class="wizard-input-title"><b>'.GetMessage("wiz_banner_carusel_lite_img_title").'</b></label><br/>
+				
+				<table class="wizard-input-table"><tbody>
+					<tr>
+						<td class="wizard-input-table-left">'.CFile::ShowImage($banner_carusel_lite_img_1, 300, 125, "border=0 vspace=15").'</td>
+						<td class="wizard-input-table-right">
+							'.GetMessage("wiz_banner_carusel_lite_img_1_name").'
+							<br/>
+							'.$this->ShowFileField("banner_carusel_lite_img_1", Array("show_file_info" => "N", "id" => "banner_carusel_lite_img_1")).'
+							<br/>
+							'.GetMessage("wiz_banner_carusel_lite_img_1_link_name").'
+							<br/>
+							'.$this->ShowInputField('text', 'banner_carusel_lite_img_1_link', array("id" => "banner_carusel_lite_img_1_link", "class" => "wizard-field")).'
+						</td>
+					</tr>
+					<tr>
+						<td class="wizard-input-table-left">'.CFile::ShowImage($banner_carusel_lite_img_2, 300, 125, "border=0 vspace=15").'</td>
+						<td class="wizard-input-table-right">
+							'.GetMessage("wiz_banner_carusel_lite_img_1_name").'
+							<br/>
+							'.$this->ShowFileField("banner_carusel_lite_img_2", Array("show_file_info" => "N", "id" => "banner_carusel_lite_img_2")).'
+							<br/>
+							'.GetMessage("wiz_banner_carusel_lite_img_1_link_name").'
+							<br/>
+							'.$this->ShowInputField('text', 'banner_carusel_lite_img_2_link', array("id" => "banner_carusel_lite_img_2_link", "class" => "wizard-field")).'
+						</td>
+					</tr>
+				</tbody></table>
+				
+			</div>
+			';
 			//END SWITCH BANNER CARUSEL
-			*/
+			
 			
 			//START INPUT SLIDE 4
 			$this->content .= '

@@ -217,4 +217,83 @@ CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/sect_slide_4.php", array(
 //END Add text to the 4rd slide
 
 
+
+
+
+// START LITE CARUSEL IMPORT
+if($wizard->GetVar("wiz_banner_carusel_switcher")=="2")
+{
+
+	//START Add IMG to the 1st CARUSEL slide
+	$siteCaruselImg1 = $wizard->GetVar("banner_carusel_lite_img_1");
+	if($siteCaruselImg1>0)
+	{
+		$ff = CFile::GetByID($siteCaruselImg1);
+		if($zr = $ff->Fetch())
+		{
+			$strOldFile = str_replace("//", "/", WIZARD_SITE_ROOT_PATH."/".(COption::GetOptionString("main", "upload_dir", "upload"))."/".$zr["SUBDIR"]."/".$zr["FILE_NAME"]);
+			$strNewFile = WIZARD_SITE_PATH."include/carousel/1.png";
+			@copy($strOldFile, $strNewFile);
+			CFile::Delete($siteCaruselImg1);
+		}
+	}
+	else
+	{
+		$strNewFile = WIZARD_SITE_PATH."include/carousel/1.png";
+		@copy(WIZARD_SITE_ROOT_PATH."/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/carousel/1.jpg",$strNewFile);
+	}
+	//END Add IMG to the 1st CARUSEL slide
+	//START Add IMG to the 1st CARUSEL slide
+	$siteCaruselImg2 = $wizard->GetVar("banner_carusel_lite_img_2");
+	if($siteCaruselImg2>0)
+	{
+		$ff = CFile::GetByID($siteCaruselImg2);
+		if($zr = $ff->Fetch())
+		{
+			$strOldFile = str_replace("//", "/", WIZARD_SITE_ROOT_PATH."/".(COption::GetOptionString("main", "upload_dir", "upload"))."/".$zr["SUBDIR"]."/".$zr["FILE_NAME"]);
+			$strNewFile = WIZARD_SITE_PATH."include/carousel/2.png";
+			@copy($strOldFile, $strNewFile);
+			CFile::Delete($siteCaruselImg2);
+		}
+	}
+	else
+	{
+		$strNewFile = WIZARD_SITE_PATH."include/carousel/2.png";
+		@copy(WIZARD_SITE_ROOT_PATH."/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/carousel/2.png",$strNewFile);
+	}
+	//END Add IMG to the 1st CARUSEL slide
+
+	$carusel_code = '
+	<?$APPLICATION->IncludeComponent("coffeediz:carusel", "files", array(
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"BACKGROUND" => "#SITE_PATH#",
+		"BACKGROUND_COLOR" => "#e84ba5",
+		"BANNERS" => array(
+			0 => "#CARUSEL_SLIDE_1#",
+			1 => "#CARUSEL_SLIDE_2#",
+		),
+		"LINKS" => array(
+			0 => "#CARUSEL_LINK_1#",
+			1 => "#CARUSEL_LINK_2#",
+		)
+		),
+		false
+	);?>
+
+	';
+	
+	CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("CARUSEL_CODE" => $carusel_code));
+	
+	CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array(
+		"SITE_PATH" => WIZARD_SITE_DIR."include/carousel/top-bg.jpg",
+		"CARUSEL_SLIDE_1"=> WIZARD_SITE_DIR."include/carousel/1.png",
+		"CARUSEL_SLIDE_2"=> WIZARD_SITE_DIR."include/carousel/2.png",
+		"CARUSEL_LINK_1"=> $wizard->GetVar("banner_carusel_lite_img_1_link"),
+		"CARUSEL_LINK_2"=> $wizard->GetVar("banner_carusel_lite_img_2_link"),
+	)
+	);
+}
+// END LITE CARUSEL IMPORT
+
 ?>

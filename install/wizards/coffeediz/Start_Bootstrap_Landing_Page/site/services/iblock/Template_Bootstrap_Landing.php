@@ -7,9 +7,9 @@ if(!CModule::IncludeModule("iblock"))
 
 
 
-if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y")
+if ($wizard->GetVar("wiz_banner_carusel_switcher")=="1")
 {
-	// IF SWITCHER install CARUSEL = Y
+	// IF SWITCHER install CARUSEL = 1 (FULL)
 	// INSTALL IBlock
 
 	$iblockXMLFile = WIZARD_SERVICE_RELATIVE_PATH."/xml/".LANGUAGE_ID."/Template_Bootstrap_Landing_Carusel.xml"; 
@@ -80,7 +80,7 @@ if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y")
 
 
 
-//IF SWITCHER install CARUSEL = Y
+//IF SWITCHER install CARUSEL = 1 (FULL)
 // INSTALL CARUSEL COMPONENT TO PAGE
 
 	$carusel_code = '

@@ -9,9 +9,9 @@ $arTypes = Array();
 
 
 
-if ($wizard->GetVar("wiz_banner_carusel_switcher")=="Y" or $wizard->GetVar("wiz_galery_carusel_switcher")!="N")
+if ($wizard->GetVar("wiz_banner_carusel_switcher")!="N" or $wizard->GetVar("wiz_galery_carusel_switcher")!="N")
 {
-// IF SWITCHER install CARUSEL = Y
+// IF SWITCHER install CARUSEL != N
 // OR
 // IF SWITCHER install GALERY CARUSEL != N
 // INSTAL Type of IBlock for it

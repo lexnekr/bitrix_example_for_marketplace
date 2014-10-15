@@ -46,14 +46,37 @@ if ($handle) {
 copy(WIZARD_THEME_ABSOLUTE_PATH . "/favicon.ico", WIZARD_SITE_PATH . "favicon.ico");
 
 CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array(
-"SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteSeoTitle")),
+"SITE_SEO_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteSeoTitle")),
 "SITE_SEO_DESCRIPTION" => htmlspecialcharsbx($wizard->GetVar("siteSeoDescription")),
 "SITE_SEO_KEYWORDS" => htmlspecialcharsbx($wizard->GetVar("siteSeoKeywords")),
+"SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName")),
+"SITE_SLOGAN" => htmlspecialcharsbx($wizard->GetVar("siteDescription")),
 ));
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/sect_slide_1.php", array("SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName"))));
 CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/local/templates/".WIZARD_TEMPLATE_ID."/include/logo.php", array("SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName"))));
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/sect_slide_1.php", array("SITE_SLOGAN" => htmlspecialcharsbx($wizard->GetVar("siteDescription"))));
 
+//START Add BG to the 1st slide
+$siteSlideImg1 = $wizard->GetVar("siteSlideImg1");
+if($siteSlideImg1>0)
+{
+	$ff = CFile::GetByID($siteSlideImg1);
+	if($zr = $ff->Fetch())
+	{
+		$strOldFile = str_replace("//", "/", WIZARD_SITE_ROOT_PATH."/".(COption::GetOptionString("main", "upload_dir", "upload"))."/".$zr["SUBDIR"]."/".$zr["FILE_NAME"]);
+		$strNewFile = WIZARD_SITE_PATH."include/intro-bg.jpg";
+		@copy($strOldFile, $strNewFile);
+		CFile::Delete($siteSlideImg1);
+	}
+}
+else
+{
+	$strNewFile = WIZARD_SITE_PATH."include/intro-bg.jpg";
+	@copy(WIZARD_SITE_ROOT_PATH."/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/intro-bg.jpg",$strNewFile);
+}
+//END Add BG to the 1st slide
+
+CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array(
+"SLIDE_1_IMG_URL" => WIZARD_SITE_DIR."include/intro-bg.jpg",
+));
 
 //START CREATE 1 SOCIAL MENU POINT
 $social_link_1=htmlspecialcharsbx($wizard->GetVar("wiz_social_link_1"));
@@ -286,8 +309,8 @@ if($wizard->GetVar("wiz_banner_carusel_switcher")=="2")
 		"SITE_PATH" => WIZARD_SITE_DIR."include/carousel/top-bg.jpg",
 		"CARUSEL_SLIDE_1"=> WIZARD_SITE_DIR."include/carousel/1.png",
 		"CARUSEL_SLIDE_2"=> WIZARD_SITE_DIR."include/carousel/2.png",
-		"CARUSEL_LINK_1"=> $wizard->GetVar("banner_carusel_lite_img_1_link"),
-		"CARUSEL_LINK_2"=> $wizard->GetVar("banner_carusel_lite_img_2_link"),
+		"CARUSEL_LINK_1"=> $wizard->GetVar("banner_carusel_lite_img_1"),
+		"CARUSEL_LINK_1"=> $wizard->GetVar("banner_carusel_lite_img_2"),
 	)
 	);
 }

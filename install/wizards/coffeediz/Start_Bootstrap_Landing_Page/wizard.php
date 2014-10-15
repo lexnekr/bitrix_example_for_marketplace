@@ -35,7 +35,7 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		
 		$siteLogo = $this->GetFileContentImgSrc(WIZARD_SITE_PATH."include/company_logo.php", "/bitrix/wizards/bitrix/demo_community/site/templates/taby/images/logo.jpg");
 
-		$siteSlideImg1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/templates/Start_Bootstrap_Landing_Page/img/intro-bg.jpg";
+		$siteSlideImg1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/intro-bg.jpg";
 		$siteSlideImg2 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide2.png";
 		$siteSlideImg3 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide3.png";
 		$siteSlideImg4 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/site/public/ru/include/slide4.png";

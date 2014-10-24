@@ -47,6 +47,8 @@ copy(WIZARD_THEME_ABSOLUTE_PATH . "/favicon.ico", WIZARD_SITE_PATH . "favicon.ic
 
 CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array(
 "SITE_SEO_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteSeoTitle")),
+"TECH_PHONE" => htmlspecialcharsbx($wizard->GetVar("sitePhoneTech")),
+"PHONE" => htmlspecialcharsbx($wizard->GetVar("sitePhone")),
 "SITE_SEO_DESCRIPTION" => htmlspecialcharsbx($wizard->GetVar("siteSeoDescription")),
 "SITE_SEO_KEYWORDS" => htmlspecialcharsbx($wizard->GetVar("siteSeoKeywords")),
 "SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName")),

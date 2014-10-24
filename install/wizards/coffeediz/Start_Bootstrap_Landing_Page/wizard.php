@@ -78,6 +78,8 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"banner_carusel_lite_img_2"=>$banner_carusel_lite_img_2,
 				"banner_carusel_lite_img_1_link"=>GetMessage("banner_carusel_lite_img_1_link_text"),
 				"banner_carusel_lite_img_2_link"=>GetMessage("banner_carusel_lite_img_2_link_text"),
+				"sitePhone" => GetMessage("sitePhone"),
+				"sitePhoneTech" => GetMessage("sitePhoneTech"),
 			)
 		);		
 	}
@@ -111,6 +113,24 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			<div class="wizard-catalog-title">'.GetMessage("wiz_company_description").'</div>
 			'.$this->ShowInputField('text', 'siteDescription', array("id" => "siteDescription", "class" => "wizard-field")).'
 		</div>';
+		
+		
+		//START Add PHONE
+		$this->content .= '
+		<div class="wizard-upload-img-block">
+			<div class="wizard-catalog-title">'.GetMessage("wiz_company_phone").'</div>
+			<table class="wizard-input-table"><tbody>
+				<tr>
+					<td><label style="float: left;" id="wiz_company_phone_label">'.GetMessage("wiz_company_phone_label").'</label></td>
+					<td><label style="float: left;" id="wiz_company_phone_tech_label">'.GetMessage("wiz_company_phone_tech_label").'</label></td>
+				</tr>
+				<tr>
+					<td class="wizard-input-table-left">'.$this->ShowInputField('text', 'sitePhone', array("id" => "sitePhone", "class" => "wizard-field", "style" => "width: 150px;float: left;")).'</td>
+					<td class="wizard-input-table-left">'.$this->ShowInputField('text', 'sitePhoneTech', array("id" => "sitePhoneTech", "class" => "wizard-field", "style" => "width: 100px;float: left;")).'</td>
+				</tr>
+			</tbody></table>
+		</div>';
+		//END Add PHONE
 		
 
 		//START Add BG to the 1st slide

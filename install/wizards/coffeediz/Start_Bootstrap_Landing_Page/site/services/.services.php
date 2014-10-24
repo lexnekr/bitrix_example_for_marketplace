@@ -8,6 +8,7 @@ $arServices = Array(
 		'STAGES' => Array(
 			"files.php",
 			"template.php",
+			"settings.php",
             "import.php",
 		),
 	),

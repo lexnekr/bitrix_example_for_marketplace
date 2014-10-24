@@ -49,6 +49,22 @@ false
 
 	<a href="http://<?=GetMessage('TEMPLATE_URL');?>"></a>
 
+	<?
+	$telephone = $APPLICATION->GetProperty("telephone");
+	$telephonetech = $APPLICATION->GetProperty("telephonetech");
+	if (strlen($telephone)>0)
+	{
+		if (strlen($telephonetech)>0)
+			{
+				$APPLICATION->SetPageProperty('telephone', '&nbsp;&nbsp;&nbsp;<a style="font-weight: 400; text-decoration: none;" href="tel:'.$telephonetech.'"><i class="fa fa-phone fa-fw"></i>&nbsp;<span class="phone-display" itemprop="telephone">'.$telephone.'</span></a>'); 
+			}
+		else
+			{
+				$APPLICATION->SetPageProperty('telephone', '&nbsp;&nbsp;&nbsp;<i class="fa fa-phone fa-fw"></i>&nbsp;<span class="phone-display" itemprop="telephone">'.$telephone.'</span>');
+			}
+	}
+	?>
+	
 </body>
 
 </html>

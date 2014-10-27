@@ -16,12 +16,6 @@ CopyDirFiles(
 );
 
 
-CWizardUtil::ReplaceMacros(
-	$bitrixTemplateDir."/Start_Bootstrap_Landing_Page/include/logo.php",
- Array(
-    "SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName")),
- )
-);
 
 CWizardUtil::ReplaceMacros(
  $bitrixTemplateDir."Start_Bootstrap_Landing_Page/include/copyright.php",

@@ -53,6 +53,7 @@ CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array(
 "SITE_SEO_KEYWORDS" => htmlspecialcharsbx($wizard->GetVar("siteSeoKeywords")),
 "SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName")),
 "SITE_SLOGAN" => htmlspecialcharsbx($wizard->GetVar("siteDescription")),
+"SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName")),
 ));
 
 CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/local/templates/".WIZARD_TEMPLATE_ID."/include/logo.php", array("SITE_TITLE" => htmlspecialcharsbx($wizard->GetVar("siteName"))));

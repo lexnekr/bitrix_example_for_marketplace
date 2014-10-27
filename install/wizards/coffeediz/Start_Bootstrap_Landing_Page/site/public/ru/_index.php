@@ -5,6 +5,7 @@ $APPLICATION->SetPageProperty("description", "#SITE_SEO_DESCRIPTION#");
 $APPLICATION->SetTitle("#SITE_SEO_TITLE#");
 $APPLICATION->SetPageProperty("telephonetech", "#TECH_PHONE#");
 $APPLICATION->SetPageProperty("telephone", "#PHONE#");
+$APPLICATION->SetPageProperty("Headerlogo", "#SITE_TITLE#");
 ?>
 
 

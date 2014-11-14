@@ -42,7 +42,10 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$banner_carusel_lite_img_1 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/carousel/1.jpg";
 		$banner_carusel_lite_img_2 = "/bitrix/wizards/coffeediz/Start_Bootstrap_Landing_Page/images/ru/carousel/2.png";
 
-		
+		global $USER;
+		$AdminsMail=$USER->GetParam("EMAIL");
+
+
 		$wizard->SetDefaultVars(
 			Array(
 				"siteName" => GetMessage("wiz_name"),
@@ -80,6 +83,7 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 				"banner_carusel_lite_img_2_link"=>GetMessage("banner_carusel_lite_img_2_link_text"),
 				"sitePhone" => GetMessage("sitePhone"),
 				"sitePhoneTech" => GetMessage("sitePhoneTech"),
+				"admins_e_mail" => $AdminsMail,
 			)
 		);		
 	}
@@ -131,7 +135,16 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 			</tbody></table>
 		</div>';
 		//END Add PHONE
-		
+
+
+		//START Add MAIL
+		$this->content .= '
+		<div class="wizard-upload-img-block">
+			<div class="wizard-catalog-title">'.GetMessage("wiz_company_email").'</div>
+			'.$this->ShowInputField('text', 'admins_e_mail', array("id" => "admins_e_mail", "class" => "wizard-field")).'
+		</div>';
+		//END Add MAIL
+
 
 		//START Add BG to the 1st slide
 		$siteSlideImg1 = $wizard->GetVar("siteSlideImg1", true);

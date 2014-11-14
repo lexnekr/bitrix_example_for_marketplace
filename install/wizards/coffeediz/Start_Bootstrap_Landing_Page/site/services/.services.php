@@ -9,6 +9,7 @@ $arServices = Array(
 			"files.php",
 			"template.php",
 			"settings.php",
+			"post_event.php",
             "import.php",
 		),
 	),

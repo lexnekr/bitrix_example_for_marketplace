@@ -37,7 +37,6 @@ $APPLICATION->SetPageProperty("Headerlogo", "#SITE_TITLE#");
 );?>
 
 
-
 <?$APPLICATION->IncludeComponent(
 "bitrix:main.include",
 "",
@@ -95,6 +94,8 @@ Array(
 )
 );?>
 
+
+#FEEDBACK_FORM#
 
 
 <?$APPLICATION->IncludeComponent(

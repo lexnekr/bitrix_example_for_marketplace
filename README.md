@@ -3,7 +3,7 @@
 
 *От сайта к типовому решению в Маркете и его обновлениям!*
 
-В данном репозитории 5 разными коммитами будут представлены 5 стадий создания простейшего типовго решения для маркетплейса 1С-Битрикс на основании данного - http://marketplace.1c-bitrix.ru/solutions/coffeediz.startbootstraplandingpage/
+В данном репозитории 5 разными коммитами будут представлены 5 стадий создания простейшего типового решения для маркетплейса 1С-Битрикс на основании данного - http://marketplace.1c-bitrix.ru/solutions/coffeediz.startbootstraplandingpage/
 
 * [Стадия 1](https://github.com/lexnekr/bitrix_example_for_marketplace/tree/9dbe39c8638e1f43437503ea3a1a09a88724926f) - Сайт
 * [Стадия 2](https://github.com/lexnekr/bitrix_example_for_marketplace/tree/f12b0a1d13c0144f2580d16d384e2b1d45fbec9f) - Мастер создания сайта
@@ -12,7 +12,7 @@
 * [Стадия 5](https://github.com/lexnekr/bitrix_example_for_marketplace/tree/04002be7294345f8771f223a53c55fde1df7665b) - Архив для публикации ОБНОВЛЕНИЯ в Маркете
 
 
-Начиная с коммита 2743a4f (v.0.2.5) репозиторий содержит ПОЛНУЮ ВЕРСИЮ МОДУЛЯ coffeediz.startbootstraplandingpage, которую к установке на БУС
+Начиная с коммита 2743a4f (v.0.2.5) репозиторий содержит ПОЛНУЮ ВЕРСИЮ МОДУЛЯ coffeediz.startbootstraplandingpage, готовую к установке на БУС
 -------
 Т.е. то, что вы получаете установив модуль из Маркетплейса 1С-Битрикс.
 Может использоваться для самостоятельной установки.

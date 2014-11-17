@@ -86,6 +86,12 @@ $arTemplateParameters = array(
 			"ADDITIONAL_VALUES" => "Y",
 			"REFRESH" => "Y",
 		),
+		"PARENT_SECTION_CODE" => array(
+			"PARENT" => "BASE",
+			"NAME" => GetMessage("IBLOCK_SECTION_CODE"),
+			"TYPE" => "STRING",
+			"DEFAULT" => '',
+		),
 		"BANNERS_COUNT"  =>  Array(
 			"PARENT" => "BASE",
 			"NAME" => GetMessage("BANNERS_COUNT"),

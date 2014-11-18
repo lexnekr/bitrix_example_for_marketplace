@@ -12,7 +12,7 @@ IncludeTemplateLangFile(__FILE__);
 
 $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/bootstrap.min.css'); 
 $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/landing-page.css');
-$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/font-awesome-4.1.0/css/font-awesome.min.css');
+$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/font-awesome/css/font-awesome.min.css');
 $APPLICATION->SetAdditionalCSS('http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic');
 ?>
 

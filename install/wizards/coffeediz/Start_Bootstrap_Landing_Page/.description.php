@@ -6,7 +6,7 @@ if (!defined("WIZARD_DEFAULT_SITE_ID") && !empty($_REQUEST["wizardSiteID"]))
 $arWizardDescription = Array(
     "NAME" => GetMessage("PORTAL_WIZARD_NAME"),
     "DESCRIPTION" => GetMessage("PORTAL_WIZARD_DESC"),
-    "VERSION" => "1.3.2",
+    "VERSION" => "1.3.4",
     "START_TYPE" => "WINDOW",
     "WIZARD_TYPE" => "INSTALL",
     "IMAGE" => "/images/" . LANGUAGE_ID . "/solution.png",

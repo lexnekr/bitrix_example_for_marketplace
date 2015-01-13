@@ -11,6 +11,9 @@ $APPLICATION->SetPageProperty("Headerlogo", "#SITE_TITLE#");
 
 <?$APPLICATION->IncludeComponent("coffeediz:slide", "intro", array(
 	"SLIDE_LINK_ID" => "",
+	"TEXT_COLOR" => "#FFFFFF",
+	"CONTEINER_CLASS" => "intro-header",
+	"TEXTALIGN" => "Center",
 	"BACKGRAUND_IMG" => "#SLIDE_1_IMG_URL#",
 	"BLOCK_1_TYPE" => "H",
 	"STRING_1_SIZE" => "5",

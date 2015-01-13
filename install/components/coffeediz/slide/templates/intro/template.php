@@ -3,10 +3,10 @@
 $this->setFrameMode(true);
 ?>
 
-<div class="intro-header" style="
+<div class="<?=$arParams['CONTEINER_CLASS'];?>" style="
 	padding-top: 50px; padding-bottom: 50px;
-	text-align: center;
-	color: #f8f8f8;
+	text-align: <?=$arParams['TEXTALIGN'];?>;
+	color: <?=$arParams['TEXT_COLOR'];?>;
 	background: url(<?=$arParams['BACKGRAUND_IMG'];?>) no-repeat center center;
 	background-size: cover;
 ">
@@ -18,10 +18,10 @@ $this->setFrameMode(true);
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="intro-message">
-				
+
 				<?if ($arParams["BLOCK_1_TYPE"]=="H" or $arParams["BLOCK_1_TYPE"]=="H+"):?>
 					<?if (!empty($arParams["STRING_1_TEXT"])):?>
-						<<?=$arParams['STRING_1_TYPE'];?>>
+						<<?=$arParams['STRING_1_TYPE'];?> style="font-size: <?=$arParams['STRING_1_SIZE'];?>em;">
 							<?=$arParams['~STRING_1_TEXT'];?>
 						</<?=$arParams['STRING_1_TYPE'];?>>
 					<?endif?>
@@ -56,6 +56,10 @@ $this->setFrameMode(true);
 							"PATH" => $arParams['BLOCK_1_AREA_PATH'],
 						)
 					);?>
+				<?elseif ($arParams["BLOCK_1_TYPE"]=="IMG"):?>
+					<?if (!empty($arParams["BLOCK_1_IMG_LINK"])):?><a href="<?=$arParams['BLOCK_1_IMG_LINK'];?>"><?endif?>
+					<img class="img-responsive" src="<?=$arParams['BLOCK_1_IMG_URL'];?>" alt="<?=$arParams['BLOCK_1_IMG_ALT'];?>" title="<?=$arParams['BLOCK_1_IMG_TITLE'];?>">
+					<?if (!empty($arParams["BLOCK_1_IMG_LINK"])):?></a><?endif?>
 				<?endif?>
 				<?if ($arParams["BLOCK_1_HR"]=="Y"):?>
 					<hr class="intro-divider">
@@ -65,7 +69,7 @@ $this->setFrameMode(true);
 				
 				<?if ($arParams["BLOCK_2_TYPE"]=="H" or $arParams["BLOCK_2_TYPE"]=="H+"):?>
 					<?if (!empty($arParams["STRING_2_TEXT"])):?>
-						<<?=$arParams['STRING_2_TYPE'];?>>
+						<<?=$arParams['STRING_2_TYPE'];?> style="font-size: <?=$arParams['STRING_2_SIZE'];?>em;">
 							<?=$arParams['~STRING_2_TEXT'];?>
 						</<?=$arParams['STRING_2_TYPE'];?>>
 					<?endif?>
@@ -100,6 +104,10 @@ $this->setFrameMode(true);
 							"PATH" => $arParams['BLOCK_2_AREA_PATH'],
 						)
 					);?>
+				<?elseif ($arParams["BLOCK_2_TYPE"]=="IMG"):?>
+					<?if (!empty($arParams["BLOCK_2_IMG_LINK"])):?><a href="<?=$arParams['BLOCK_2_IMG_LINK'];?>"><?endif?>
+					<img class="img-responsive" src="<?=$arParams['BLOCK_2_IMG_URL'];?>" alt="<?=$arParams['BLOCK_2_IMG_ALT'];?>" title="<?=$arParams['BLOCK_2_IMG_TITLE'];?>">
+					<?if (!empty($arParams["BLOCK_2_IMG_LINK"])):?></a><?endif?>
 				<?endif?>
 				<?if ($arParams["BLOCK_2_HR"]=="Y"):?>
 					<hr class="intro-divider">
@@ -109,7 +117,7 @@ $this->setFrameMode(true);
 				
 				<?if ($arParams["BLOCK_3_TYPE"]=="H" or $arParams["BLOCK_3_TYPE"]=="H+"):?>
 					<?if (!empty($arParams["STRING_3_TEXT"])):?>
-						<<?=$arParams['STRING_3_TYPE'];?>>
+						<<?=$arParams['STRING_3_TYPE'];?> style="font-size: <?=$arParams['STRING_3_SIZE'];?>em;">
 							<?=$arParams['~STRING_3_TEXT'];?>
 						</<?=$arParams['STRING_3_TYPE'];?>>
 					<?endif?>
@@ -144,6 +152,10 @@ $this->setFrameMode(true);
 							"PATH" => $arParams['BLOCK_3_AREA_PATH'],
 						)
 					);?>
+				<?elseif ($arParams["BLOCK_3_TYPE"]=="IMG"):?>
+					<?if (!empty($arParams["BLOCK_3_IMG_LINK"])):?><a href="<?=$arParams['BLOCK_3_IMG_LINK'];?>"><?endif?>
+					<img class="img-responsive" src="<?=$arParams['BLOCK_3_IMG_URL'];?>" alt="<?=$arParams['BLOCK_3_IMG_ALT'];?>" title="<?=$arParams['BLOCK_3_IMG_TITLE'];?>">
+					<?if (!empty($arParams["BLOCK_3_IMG_LINK"])):?></a><?endif?>
 				<?endif?>
 				<?if ($arParams["BLOCK_3_HR"]=="Y"):?>
 					<hr class="intro-divider">
@@ -153,7 +165,7 @@ $this->setFrameMode(true);
 				
 				<?if ($arParams["BLOCK_4_TYPE"]=="H" or $arParams["BLOCK_4_TYPE"]=="H+"):?>
 					<?if (!empty($arParams["STRING_4_TEXT"])):?>
-						<<?=$arParams['STRING_4_TYPE'];?>>
+						<<?=$arParams['STRING_4_TYPE'];?> style="font-size: <?=$arParams['STRING_4_SIZE'];?>em;">
 							<?=$arParams['~STRING_4_TEXT'];?>
 						</<?=$arParams['STRING_4_TYPE'];?>>
 					<?endif?>
@@ -188,6 +200,10 @@ $this->setFrameMode(true);
 							"PATH" => $arParams['BLOCK_4_AREA_PATH'],
 						)
 					);?>
+				<?elseif ($arParams["BLOCK_4_TYPE"]=="IMG"):?>
+					<?if (!empty($arParams["BLOCK_4_IMG_LINK"])):?><a href="<?=$arParams['BLOCK_4_IMG_LINK'];?>"><?endif?>
+					<img class="img-responsive" src="<?=$arParams['BLOCK_4_IMG_URL'];?>" alt="<?=$arParams['BLOCK_4_IMG_ALT'];?>" title="<?=$arParams['BLOCK_4_IMG_TITLE'];?>">
+					<?if (!empty($arParams["BLOCK_4_IMG_LINK"])):?></a><?endif?>
 				<?endif?>
 				<?if ($arParams["BLOCK_4_HR"]=="Y"):?>
 					<hr class="intro-divider">
@@ -197,7 +213,7 @@ $this->setFrameMode(true);
 				
 				<?if ($arParams["BLOCK_5_TYPE"]=="H" or $arParams["BLOCK_5_TYPE"]=="H+"):?>
 					<?if (!empty($arParams["STRING_5_TEXT"])):?>
-						<<?=$arParams['STRING_5_TYPE'];?>>
+						<<?=$arParams['STRING_5_TYPE'];?> style="font-size: <?=$arParams['STRING_5_SIZE'];?>em;">
 							<?=$arParams['~STRING_5_TEXT'];?>
 						</<?=$arParams['STRING_5_TYPE'];?>>
 					<?endif?>
@@ -232,6 +248,10 @@ $this->setFrameMode(true);
 							"PATH" => $arParams['BLOCK_5_AREA_PATH'],
 						)
 					);?>
+				<?elseif ($arParams["BLOCK_5_TYPE"]=="IMG"):?>
+					<?if (!empty($arParams["BLOCK_5_IMG_LINK"])):?><a href="<?=$arParams['BLOCK_5_IMG_LINK'];?>"><?endif?>
+					<img class="img-responsive" src="<?=$arParams['BLOCK_5_IMG_URL'];?>" alt="<?=$arParams['BLOCK_5_IMG_ALT'];?>" title="<?=$arParams['BLOCK_5_IMG_TITLE'];?>">
+					<?if (!empty($arParams["BLOCK_5_IMG_LINK"])):?></a><?endif?>
 				<?endif?>
 				<?if ($arParams["BLOCK_5_HR"]=="Y"):?>
 					<hr class="intro-divider">
